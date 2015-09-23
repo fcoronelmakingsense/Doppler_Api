@@ -1,0 +1,372 @@
+// *************************************
+//
+//   IE 8 Support
+//
+//   -> Helper Classes
+//   -> Buttons
+//   -> Footer
+//
+// *************************************
+
+@import "compass";
+@import "core/typography";
+/*
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/sourcesanspro-regular-webfont.eot');
+    src: url('../fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-regular-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-regular-webfont.svg#Source Sans Pro') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/sourcesanspro-black-webfont.eot');
+    src: url('../fonts/sourcesanspro-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-black-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-black-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-black-webfont.svg#Source Sans Pro') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/sourcesanspro-it-webfont.eot');
+    src: url('../fonts/sourcesanspro-it-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-it-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-it-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-it-webfont.svg#Source Sans Pro') format('svg');
+    font-weight: 400;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/sourcesanspro-bold-webfont.eot');
+    src: url('../fonts/sourcesanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-bold-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-bold-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-bold-webfont.svg#Source Sans Pro') format('svg');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/sourcesanspro-light-webfont.eot');
+    src: url('../fonts/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-light-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-light-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-light-webfont.svg#Source Sans Pro') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+*/
+// -------------------------------------
+//   Helper Classes
+// -------------------------------------
+
+//.ie8-wrapper-full {max-width: }
+
+.wrapper-main,
+.footer-main--nav,
+.content-main--cost,
+.breadcrumb > div,
+.plan-comparison-header,
+.section--plan-comparison {
+	max-width: 980px; min-width: 980px
+}
+
+h1, h2, h3, h4, h5, h6, div, strong, em, input, select, p {font-weight: 400}
+
+html, body {min-width: 980px}
+
+.wrapper-content,
+.resource-center,
+.section--results {
+	max-width: 960px; min-width: 960px
+}
+
+input::-ms-clear {display: none; width: 0; height: 0}
+
+.button,
+input,
+select,
+.input,
+.header--plan-categories .header--aside,
+.header-main--nav > ul > li > ul,
+.home--resources nav li,
+.badge--notification,
+.icon-plan-type,
+.cost--content .header-cost,
+.comparison-column,
+.comparison-column > .header,
+.close-search {behavior: url(../scripts/PIE.htc);}
+
+
+.button {min-height: 40px; line-height: 40px; height: 40px}
+
+img {max-width: auto}
+
+.tooltipster-default .tooltipster-arrow .tooltipster-arrow-border {display: none}
+.tooltipster-arrow-border {border-color: #393b40 !important}
+
+.fancybox-overlay {background-image: url(../img/overlay.png) !important}
+
+
+
+// -------------------------------------
+//   Header
+// -------------------------------------
+
+.header-main--actions .button--do-search {width: 70px; height: 70px}
+.header-main--nav .menu--do-dropdown {
+	position: relative; height: 70px; overflow: hidden;
+
+	&:hover {overflow: visible;}
+}
+.header-main--nav .menu--do-dropdown > ul {display: block; visibility: visible; margin-top: 0}
+.header--steps {
+	fieldset {position: relative; z-index: 1000;}
+	.button--important {height: 50px}
+} 
+
+.step--2 fieldset .button-holder {max-width: 160px}
+.step--2 .input.input--multiple {padding-left: 10px; padding-right: 0}
+.step--2 .input-holder span.placeholder {display: block; width: auto !important; top: 40px !important; left: 10px !important}
+
+.header-main.header--hero {
+	height:600px;
+	background-image: url('/img/header_bg_4.jpg');
+  background-size: cover;
+  background-position: bottom;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+  src='/img/header_bg_4.jpg',
+  sizingMethod='scale');
+}
+
+/* --- Profile Edit --- */
+
+.profile-holder {
+  .profile--account {
+    li {overflow: visible}
+    li a {
+      font-size: 0;
+    }
+  }
+  .profile--config {
+    .step-block header {display: inline-block;}
+    .step-block.step--you {width: 100%;}
+
+    .multiple--do-duplicate .family-member {letter-spacing: -1px}
+  }
+
+  .profile-config--nav-open {
+    > ul {
+        li {padding: 0 15px !important}
+        li:nth-child(2) {padding-left: 0 !important}
+        li:nth-child(3) {width: 300px}
+        li:nth-child(4) {width: 490px; border-right: 0; padding-right: 0 !important}
+    }
+    li.slvzr-first-of-type {display: none}
+
+    .input-holder label .placeholder {width: 80% !important; left: 10px !important; top: 27px !important}
+    .input--fixed {
+        input[type="radio"],
+        input[type="checkbox"] {padding: 0;}
+    }
+
+    .input--do-remove {right: -10px; bottom: -5px;}
+  }
+}
+.step--2 fieldset.step-2--row-is-duplicated .input-householdincome {line-height: 50px}
+
+    
+    /*   RESULTS PAGE   */
+    .header-main.profile--is-edit {
+        .profile-holder {height: 300px; padding-bottom: 80px}
+        .profile--controls {
+            display: block; float: inherit; clear: both; text-align: center; width: 100% !important; padding: 0 !important; height: 60px; bottom: -60px; top: auto;
+            .step-block {
+              position: relative; z-index: 2000;
+              a {display: inline-block;}
+            }
+            .button--do-update {display: inline-block;max-width: 120px;}
+        }
+
+    }
+
+.header-main--actions {
+  .button {margin-right: 25px; position: relative}
+
+  .form-search {
+    width: 70px !important; right: 10px;
+    
+    div {padding: 0; margin-top: 15px; display: none}
+
+    .text-search {
+      border: 1px solid $text_color-cyan; background: transparent; position: relative; line-height: 5px; padding-right: 50px;
+
+      &:focus {background: transparent !important;}
+    }
+    .close-search {display: none; opacity: 1; right: 40px; width: 20px !important; height: 20px !important; text-align: center !important; padding: 0 !important} 
+    .button--do-search {display: block}
+    .button--do-search:before {left: 25px; top:1px;}
+
+
+    &.form-search--is-open {
+      width: 344px !important; right: 20px;
+      div {
+        width: 100%;
+        display: block;
+        opacity: 1;
+      }
+      .close-search {display: block;}
+      .button--do-search { 
+        background: none !important;
+        height: 70px; 
+        &:before { color: $text_color-cyan; left: 35px;}
+      }
+    }     
+  }
+} 
+
+
+
+
+
+// -------------------------------------
+//   Home
+// -------------------------------------
+
+
+
+
+// -------------------------------------
+//   Results
+// -------------------------------------
+
+.icon-plan-type {
+	color: $text_color-cyan; width: 27px; height: 27px; display: inline-block; text-align: center; padding-top: 1px; border:1px solid $text_color-cyan; position: relative; @include border-radius(9999px);
+
+	&:before {border:none; margin-left: -1px; padding-top: 4px}
+
+	&.icon-plan-type--disabled {
+		border:1px solid lighten($text_color-gray-light, 30%);
+
+		&:before { color: lighten($text_color-gray-light, 30%); border:none;}
+	}
+
+}
+
+.results--main-header h2 {font-size: 16px; padding-top: 3px}
+
+.plans--do-recommend {position: relative}
+
+.results--show-more {height: 50px; position: relative}
+
+table.module--results {
+
+	font-size: 15px;
+
+	thead tr th {font-size: 15px}
+
+	tr th,
+	tr td {
+		&:nth-of-type(3) {display: none;}
+		&:nth-of-type(1) {width:32%}
+		&:nth-of-type(2) {width:17%}
+		&:nth-of-type(3) {display: none}
+		&:nth-of-type(4) {display: none}
+		&:nth-of-type(5) {width:17%}
+		&:nth-of-type(6) {width:36%}
+	}
+
+	tr td {padding: 1em !important}
+}
+table.module--results .result-buttons .button {position: relative}
+.filters--block {font-size: 95% !important}
+
+
+
+
+// -------------------------------------
+//   Enroll + Plan Detail
+// -------------------------------------
+
+.content-main--cost {
+	.grid--details h3 {font-size: 150%}
+	.grid--details h5 {font-size: 100%}
+
+	.grid--details table td {padding-left: 0}
+} 
+.module--tabs-menu a {background-color: #EBEBEB}
+
+.content-main--cost{
+        .grid--cost {
+            // @include span(1 / 4);
+            margin-bottom: 50px;
+
+            nav {
+                font-size: 16px;
+                text-align: right;
+                padding: 0;
+                a { 
+                    margin: 0;
+                    font-size: 0;
+                    span {
+                        margin: 0 5px 0 5px;
+
+                        &:before {font-size: 25px !important;}
+                    }
+                }
+            }
+
+            .header-cost {
+                .cost { font-size: 40px; }                                
+            }
+
+            .body-cost { 
+                font-size: 11px; background-color: transparent;
+                button { padding: 0; }
+                a { line-height: 43px !important; padding: 0; }
+            }
+        }
+    }
+
+
+
+// -------------------------------------
+//   Plan Comparison
+// -------------------------------------
+
+.comparison-column {
+  &:hover {background-color: transparent;}
+
+  .comparison-buttons {
+    width: 100%; overflow: hidden;
+
+    .button {position:relative; width: 100% !important; margin: 13px 0 0 0}
+  }
+
+  .actions-secondary {font-size: 14px; margin-top: 20px}
+}
+
+.button--do-expand {height: 50px}
+
+
+// -------------------------------------
+//   Footer
+// -------------------------------------
+
+.footer-main {float: left; width: 100%}
+.footer-main--nav-holder {overflow: hidden}

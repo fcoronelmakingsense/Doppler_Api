@@ -1,0 +1,104 @@
+// *************************************
+//
+//   Forms
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+input[type="text"],textarea {
+	color:#535845; width: 100%; line-height: 1.3; font-size: toem(14px); background: #F2F1E9; border: 1px solid #C1C0B4; padding: toem(18px)  toem(25px);
+	@include transition(all, .5s, ease-out); border-radius:toem(100px);	
+	&:focus {outline: none; background: #fff; }
+	&.alternative {
+		background: transparent; color: #fff;
+		&:focus{outline: none; background: transparent; border:1px solid #F2F1E9; color: #fff};
+	}
+	&.small{padding: toem(10px) toem(25px)}
+}
+
+textarea {resize:none; border-radius: toem(20px);}
+
+.input--holder {
+	text-align: left; clear: both;
+	label {
+		color: #545845; font-style: italic; font-size: toem(14px); text-align: left; text-indent: 20px; display: block; margin-bottom: 5px;
+		span{color: #B3B1A5;}
+		&.alternative{span{color: #838370}}
+	}
+	.error{
+		background: #DF3434; padding: toem(10px) toem(15px); font-size: toem(14px); color: #F2F1E9; position: relative; @include opacity(0); 
+		div{position: absolute;width: 0;height: 0; left:3%;border-style: solid;border-width: 0 8px 8px 8px; top:-8px; border-color: transparent transparent #df3434 transparent;}
+	}	
+	
+	
+	&.error{
+		input[type="text"], textarea {
+			border: 1px solid #DF3434;
+			&.alternative{
+				&:focus{border: 1px solid #DF3434;}	
+			}
+		}
+		.error{@include opacity(1); @include transition(all 0.5s ease-out);position: relative; top: 7px; left: toem(20px); font-style: italic;}
+	}
+	&.off {
+		label {text-indent: 25px; color: #C0BFB3; @include transition(all 0.5s ease-out); @include opacity(0); height: 1em; line-height: 1em;}
+		.error{position: absolute; margin-left: 4%;top: 100%; left:0;}
+	} 
+	&.active label {
+		@include opacity(1); line-height: 0.7em;
+	}
+	&.hide{@include animation('hide-form 4s linear')}
+	&.half{
+		@include col(1/2);
+		&:nth-child(3),&:nth-child(5),&:nth-child(7),&:nth-child(9){margin-right: 0;}
+		&.no-margin{margin-right: 0;}
+		&.margin{margin-right: 3%}
+		text-align:left;
+	}
+	&.city{display: none !important;}
+	input[type="radio"]{display: none}
+}
+
+.success--container {
+	position: absolute; width: 100%; bottom:6%; @include opacity(0); @include animation('success 4s linear'); z-index: -1;
+	span {
+		color: #6CC497; font-size: toem(16px);
+		&.icon-check-circle-forms{font-size: toem(38px); margin-left: toem(10px);}
+	}
+	p {font-style: italic; font-size: toem(22px);  margin-top: 1%; color: #6CC497; font-weight: 600;}
+	&.alternative{
+		bottom: 44%; text-align: center;
+		.text{font-style: italic;}
+		span.icon-check-circle-forms{display: block;}
+	}
+}
+
+.contact--form .success--container {
+	left: 0;
+}
+
+form,.contact--form .wrapper {
+	&.hide{@include animation('hide-form 4s linear')}
+	.button--container{clear: both; margin-top: 2%;}
+}
+
+label.radio--container {
+	display: inline-block; margin-top: toem(10px); color: #838370; cursor: pointer;
+	span {
+		border-radius: 100%; border: 1px solid #B4B1A5; background: #fff; width: 16px; height: 16px; display: inline-block; margin-right: 5px; vertical-align: sub;
+		
+	}
+}
+
+
+@include placeholder {color: #B4B1A5 !important; font-style: italic;}

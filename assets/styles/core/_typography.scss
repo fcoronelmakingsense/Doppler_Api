@@ -1,0 +1,59 @@
+// *************************************
+//
+//   Typography
+//
+// *************************************
+
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$font_weight-light: 300;
+$font_weight-regular: $base_font-weight;
+$font_weight-semibold: 600;
+$font_weight-bold: 700;
+$base_font-color: #545845;
+
+
+// -------------------------------------
+//   Helper classes
+// -------------------------------------
+
+%text--small {font-size: 80%}
+%text--left {text-align: left}
+%text--right {text-align: right}
+%text--center {text-align: center}
+%text--light {font-weight: $font_weight-light}
+%text--bold {font-weight: $font_weight-bold}
+%text--regular {font-weight: $font_weight-regular}
+%text--uppercase {text-transform: uppercase}
+
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+html, button {-webkit-font-smoothing: antialiased}
+
+h5, h3, h4 { font-weight: $font_weight-regular; margin: 0;color: $base_font-color;}
+
+h1, h2 {font-weight: $font_weight-semibold;  color: #302100; letter-spacing: -1px; margin: 0 0 2%}
+
+h1{line-height: 90%; font-size: toem(58px);}
+
+h2 {
+	font-size: toem(42px);line-height: 100%; 
+	&.big{line-height: 90%; font-size: toem(58px)}
+}
+
+h3 {font-size: toem(30px); line-height: 110%; letter-spacing: -1px}
+
+h4 {font-size: toem(22px); line-height: 120%; letter-spacing: -1px}
+
+h5 {font-size: toem(18px); line-height: 130%; margin: 0}
+
+
+
+p {font-size: 1em; line-height: 130%; color: $base_font-color;}

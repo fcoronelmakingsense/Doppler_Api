@@ -1,0 +1,137 @@
+// *************************************
+//
+//   Header
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+#main-header {
+	position: absolute; width: 100%; z-index: 10;
+	.wrapper{padding-top: toem(15px)}
+	.language{
+		text-align: right; margin-right: toem(20px);
+		&.language--responsive{.link{margin:0;margin-right: toem(5px)}}
+	}
+	.link{
+		margin-left: toem(5px); background-repeat: no-repeat;  border: 0; background-color: transparent; width: 20px;height: 20px;display: inline-block; position: relative;
+		svg{
+			width: 20px; height: 20px; display: inline-block;
+			
+		}
+		
+		&:hover{
+			&:after{background: rgba(48,33,0,.3);position: absolute; top:0; left: 0; width: 100%; height: 100%; display: inline-block; content:""; border-radius: 100%;}
+		}
+		&.active{
+			&:after{background: rgba(48,33,0,.6); position: absolute; top:0; left: 0; width: 100%; height: 100%; display: inline-block; content:""; border-radius: 100%;}
+			pointer-events: none;cursor: default;
+			&:hover{@include opacity(1)}
+		}
+	}
+	.logo{
+		float: left;
+
+	}
+	nav{float: left; margin: toem(15px) 0 0 toem(30px)}
+	li{
+		display: inline-block;
+		a{ 
+			color: #302000; font-size: toem(13px); margin-right: toem(20px); font-weight: 600;
+			&:hover,&.active{@include opacity(0.4)};
+		}
+	}
+	.buttons {float: right;}
+	.button {
+		margin-left: toem(15px);
+	}
+	
+}
+.responsive-buttons {
+	float: right; margin: 8px 0 0 2%; display: none;
+	a{
+		color: #302000; font-size: toem(11px); cursor: pointer;
+		&:hover{@include opacity(0.4)}
+		span{font-size: 1.33em}
+	}
+}
+.icon-doppler-logo{font-size: toem(39px); color: #302100}
+#header--bar {
+	width: 100%; background: #FCE579; padding: 0 2%;
+	.wrapper{padding: toem(15px);} 
+	&.not--over-header{
+		@include animation('fadeInDown 0.5s ease-out'); position: fixed; top: 0; .wrapper{padding: toem(30px);}
+	}
+	&.header--hidden{
+		@include animation('fadeOutUp 0.5s ease-out forwards'); position: fixed; top: 0; .wrapper{padding: toem(30px);}
+	}
+	
+}
+
+#responsive-menu {
+	@include transition(all 0.5s ease-out); overflow-x: hidden; border-left: 1px solid #B4B1A5; position: fixed; top: 0; right: -320px; width: 320px; background: #EAE7DC; z-index: 20; padding: 0 5% 6% 50px; height: 100%; 
+	&.active{ right: 0;}
+	.buttons-container{
+		margin: 15% 0 18%;
+		.button{margin-left: 0;position: relative;left: -13px;}
+		.close{
+			&:hover{@include opacity(0.4)}
+			font-size: toem(11px); color: #302100; float: right; padding-top: 0.6em; cursor: pointer;
+			span{font-size: toem(25px); vertical-align: sub;}
+		}
+		.button--primary{background-color: #33AD73; border-color: #33AD73; color: #fff;}
+		.button--fourth{border-color: #33AD73; }
+	}
+	li{
+		display: block; margin-top: 8%;
+		a{color: #302100 !important}
+	}
+	nav{float: none; margin: 17% 0 19% }
+	p{
+		text-transform: uppercase; padding-bottom: 2%;
+		&.alternative{padding-top: 5%;}
+		a{
+			color: #838370; font-size: toem(12px);
+			&:hover{color:#302100;}
+		}
+	}
+}
+
+
+.page--roi,.page--services,.page--pricing,.page--client-manager,.page--pricing,.page--pricing-exclusive,.page--pricing-high,.page--pricing-monthly,.page--resources,.page--resources-infographics,.page--resources-tools,.page--resources-ebooks,.page--resources-videos{
+	#header--bar{background: #65C192}
+	.responsive-buttons a{color: #fff}
+	#main-header {
+		li a{color: #fff;}
+	}
+	.button--fourth{
+		color: #302100; border-color: #302100;
+		&:hover{
+			background:rgba(48,133,0,0.2);
+		}
+	}
+	header .button--primary,.secondary-nav .button--primary{
+		background:  #302100; border-color: #302100;
+		&:hover{background:#594103;}
+	}
+	.icon-doppler-logo{color: #fff;}
+}
+.page--client-manager {
+	#header--bar{background: #6EC0A0}
+}
+
+.page--services {
+	#header--bar{background: #F4B974}
+}
+.page--resources,.page--resources-infographics,.page--resources-tools,.page--resources-ebooks,.page--resources-videos,.page--roi {
+	#header--bar{background: #EE9C70;.wrapper{padding: toem(30px);}}	
+}
+.page--offices,.page--team,.page--contact{
+	#header--bar{background: #FCDE9C}
+}
+.page--home{
+	#header--bar{background: #F4ECC7}
+}

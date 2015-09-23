@@ -1,0 +1,55 @@
+// *************************************
+//
+//   Settings
+//   -> Fonts, Variables
+//
+// *************************************
+
+
+// *************************************
+//
+//   -> Thanks to Jeet Grid System
+//			http://jeet.gs/
+//
+// *************************************
+
+@import '../libs/jeet/index';
+
+// Uncomment the following line to debug layout's box model.
+// @include edit();
+
+
+// -------------------------------------
+//   @font-face
+// -------------------------------------
+
+$base_font-size: 16px;
+$base_font-weight: 400;
+$base_font-family: 	"proxima-nova", Arial, helvetica, sans-serif;
+$base_font: $base_font-weight $base_font-size $base_font-family;
+
+
+
+// -------------------------------------
+//   Font colors
+// -------------------------------------
+
+$base_font-color--bright: 		#fff;
+$base_font-color--dark: 			#000;
+$base_font-color: #545845;
+
+
+// -------------------------------------
+//   Backgrounds
+// -------------------------------------
+
+$base_background: 						#fff;
+$yellow_background: #FCE579;
+
+
+// -------------------------------------
+//   Wrappers
+// -------------------------------------
+
+$holder-max-width: 						torem(1280px);
+$app-max-width: 							torem(960px);

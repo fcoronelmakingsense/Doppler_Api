@@ -1,0 +1,32 @@
+// *************************************
+//
+//   Functions
+//
+// *************************************
+
+@import '../core/settings';
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// ----- Convert to EMs function ----- //
+
+@function toem($target, $context: $base_font-size) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
+}
+
+// ----- Convert to REMs function ----- //
+
+@function torem($target, $context: $base_font-size) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0rem;
+}
