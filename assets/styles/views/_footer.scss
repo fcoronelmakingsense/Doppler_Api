@@ -16,53 +16,5 @@
 //   Base
 // -------------------------------------
 #main-footer {
-	.section--auto-height{float: none;}
-	background: #F2F1E9; padding-bottom: 2.5%;
-	.wrapper{padding-top: 4.6em;}
-	& .footer-top{
-		height: 300px; 
-		background: -webkit-linear-gradient(left, #302100, #302100 50%, #F2F1E9 50%, #F2F1E9);
-		background: -moz-linear-gradient(left, #302100, #302100 50%, #F2F1E9 50%, #F2F1E9);
-		background: -ms-linear-gradient(left, #302100, #302100 50%, #F2F1E9 50%, #F2F1E9);
-		.wrapper {
-			height: 100%;
-			& > div 
-			{	@include span(1/2); 
-				&:first-child{padding-right:5%;}
-			}
-
-		}
-	}
-	.footer-links {
-		padding-left: 5%;
-		ul {@include span(1/3);text-align: left;}
-		li {
-			strong{text-transform: uppercase;}
-			font-size: toem(14px); line-height: 150%;
-			a{
-				color: #545845;
-				&:hover{color:#838370}
-			}
-		}
-	}
-	.follow {
-		width: 100%; float: left; text-align: left; margin-top: 10%;
-		a{ 
-			font-size: toem(31px); color: #838370; margin-right: 1.6%;
-			&:hover{color:#545845}
-		}
-	}
-	.input--holder{position: relative;}
-	.form__title {font-size: toem(30px); line-height: 110%; color: #C1C0B4; letter-spacing: -1px; margin-bottom: 5%; text-align: left;}
-	form { position: relative;}
-	button{position: absolute;right: 5px; bottom: 4px; padding: 15px 30px;}
 	
-	input:-webkit-autofill {
-	    -webkit-box-shadow:0 0 0 50px #302100 inset; /* Change the color to your own background color */
-	    -webkit-text-fill-color: #fff !important;
-	}
-}
-.copyright {
-		font-size: toem(14px); margin: 2.6% 0 0; @include center(1280px); text-align: center; padding: 0; line-height: 1.8;
-		span{color: #555845; font-size: toem(16px);}
 }
