@@ -38,14 +38,22 @@
 	&.vertical-middle{ }
 }
 
+.icon-ancla {font-size: 15px; margin-right: 10px}
+.icon-warning {color: #D7793D; font-size: 26px; margin-right: 5px}
+
+.message {
+	padding: toem(15px) toem(10px) toem(15px) toem(35px); border-top: 1px #B4B1A5 dotted; border-bottom: 1px #B4B1A5 dotted;
+	p{padding-bottom: 5px}
+}
+
 #main{
 	display: -webkit-flex;display: flex;-webkit-flex-flow: row;flex-flow: row; padding-right: 6%;
-	& > nav {
+	& > aside {
 		-webkit-flex: initial;
           flex: initial;
-          max-width: 440px; min-width: 370px; background: #F2F1E9;
+          max-width: 440px; width: 100%; background: #F2F1E9;
 	}
 	& > article {
-		flex:1; padding: 4% 0 10% 15px;
+		flex:1; padding: 4% 0 10% 40px;
 	}
 }

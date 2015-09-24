@@ -397,7 +397,7 @@ module.exports = function (grunt) {
   grunt.registerTask('run', [
     'bowercopy:dev',
     'copy:dev',
-    //'webfont',
+    'webfont',
     'concurrent:watch'
   ]);
 

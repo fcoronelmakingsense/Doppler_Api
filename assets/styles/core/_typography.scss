@@ -39,21 +39,35 @@ html, button {-webkit-font-smoothing: antialiased}
 
 h5, h3, h4 { font-weight: $font_weight-regular; margin: 0;color: $base_font-color;}
 
-h1, h2 {font-weight: $font_weight-semibold;  color: #302100; letter-spacing: -1px; margin: 0 0 2%}
+h1, h2 { color: #302000; letter-spacing: -1px; margin: 0 0 2%}
 
-h1{line-height: 90%; font-size: toem(58px);}
+h1{line-height: 100%; font-size: toem(42px); font-weight: $font_weight-semibold; margin-bottom: toem(15px) }
 
-h2 {
-	font-size: toem(42px);line-height: 100%; 
-	&.big{line-height: 90%; font-size: toem(58px)}
-}
+h2 {font-size: toem(22px);line-height: 100%; font-weight: $font_weight-regular; margin-top: toem(30px)}
 
-h3 {font-size: toem(30px); line-height: 110%; letter-spacing: -1px}
+h3 {font-size: toem(18px); line-height: 100%; letter-spacing: -1px; margin: 50px 0 10px; font-weight: $font_weight-semibold; color: #555845}
 
 h4 {font-size: toem(22px); line-height: 120%; letter-spacing: -1px}
 
 h5 {font-size: toem(18px); line-height: 130%; margin: 0}
 
+a{
+	color: #33AC72;
+	&:hover{color: #008046;}
+}
 
+p {
+	font-size: 1em; line-height: 160%; color: $base_font-color; padding-bottom: toem(25px);
+	code{ 
+		background: #FFEEA7; padding: toem(5px);
+		&.link{
+			background: #fff;color: #33AC72;
+			&:hover{color: #008046;}
+		}
+	}
+}
 
-p {font-size: 1em; line-height: 130%; color: $base_font-color;}
+pre {
+	background: #FFEEA7; padding: toem(15px) toem(20px); text-align: left; display: flex; display: -webkit-flex; margin: 0 0 toem(50px);
+	code{font-size: 14px; line-height: 30px; white-space: pre-line;}
+}
