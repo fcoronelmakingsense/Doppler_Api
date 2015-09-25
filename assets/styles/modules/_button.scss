@@ -8,50 +8,8 @@
 //   Variables
 // -------------------------------------
 
-$button_color: #fff;
-$button_border-color: #B5B5B5;
-
 
 
 // -------------------------------------
 //   Base
 // -------------------------------------
-
-.button {
-	background-color: gray; text-transform: uppercase; border:none; -webkit-appearance: none; font: $base_font; font-weight: 400; font-size: toem(18px); text-align: center !important; text-decoration: none; color: $button_color; height:auto; display: inline-block; padding: 1.3625em 2.625em; min-width: torem(40px);
-	@include border-radius(toem(100px)); 
-}
-
-.button--primary {
-	background-color: #33AD73;border: 1px solid #33AD73;
-	&:hover{background:#008046;border: 1px solid #008046;}
-}
-
-.button--secondary {
-	background: $yellow_background; color: #302100;
-	&:hover{background:#C6B159;}
-}
-
-.button--alternative {
-	background: #302100;
-	&:hover{background:#594103;}
-}
-
-.button--third {
-	background: #EE9C70;
-}
-
-.button--fourth {
-	background: transparent; border: 1px solid #33AD73; color: #33AC72;
-	&:hover{
-		background:rgba(51,173,115,0.2);
-	};
-}
-.button--alternative-light {
-	background: transparent; border: 1px solid #302100; color: #302000;
-	&:hover{background:rgba(48,33,0,0.2);}
-}
-
-.button--small {
-	font-size: toem(13px); font-weight: 600; padding: 12px 23px; line-height: 1;
-}

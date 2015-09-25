@@ -51,11 +51,18 @@ h4 {font-size: toem(22px); line-height: 120%; letter-spacing: -1px}
 
 h5 {font-size: toem(18px); line-height: 130%; margin: 0}
 
+h1,h2,h3 {
+	a {
+		font-size: 15px; font-family:"icon-font";display:inline-block;vertical-align:middle;line-height:1;font-weight:normal;font-style:normal; speak:none;text-decoration:inherit;text-transform:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; margin: -4px 10px 0 -23px;
+		&:before{content:"\f101";}
+	}
+}
+
 a{
 	color: #33AC72;
 	&:hover{color: #008046;}
 }
-
+code{font-family: "Courier"}
 p {
 	font-size: 1em; line-height: 160%; color: $base_font-color; padding-bottom: toem(25px);
 	code{ 
@@ -69,5 +76,5 @@ p {
 
 pre {
 	background: #FFEEA7; padding: toem(15px) toem(20px); text-align: left; display: flex; display: -webkit-flex; margin: 0 0 toem(50px);
-	code{font-size: 14px; line-height: 30px; white-space: pre-line;}
+	code{font-size: 14px;}
 }

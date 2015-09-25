@@ -32,12 +32,378 @@
 		<main id="main" role="main">
 			<aside>
 				<nav>
-				<ul>
-					<li>Introduction</li>
-				</ul>
+					<ul>
+						<li>
+							<a href="#">Introduction </a>
+						</li>
+						<li><a href="#">Getting Started</a></li>
+						<li>
+							<p>Resources API 3.0 (select one)</p>
+							<ul>
+								<li><a href="#">Indexes <span></span></a></li>
+								<li>
+									<a href="#">Lists <span></span></a>
+									<ul>
+										<li><a><i>Lists Collection</i><span></span></a></li>
+										<li><a><i>Lists</i><span></span></a></li>
+									</ul>
+								</li>
+								<li><a href="#">Subscribers</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Technical definitions</a></li>
+						<li><a href="#">Frecuent questions</a></li>
+					</ul>
 				</nav>
 			</aside>
 			<article>
+<h1>Getting started</h1>
+<p>Since the API is based on REST principles, it's very easy to write and test applications. You can use your browser to access URLs, and you can use pretty much any HTTP client in any programming language to interact with the API.</p>
+<h2><a id="gettinganapplicationkey" href="#gettinganapplicationkey"></a>Getting an API Key </h2>
+<p>Most of the Doppler API services require to call them on a behalf of  a user, so it is required an <em>API Key</em> to be included in each request.</p>
+<p>See <a href="http://help.fromdoppler.com/en/api-interfaz-de-programacion-de-aplicaciones/">Where do I find my API Key?</a>.</p>
+<h2>Using API Key <a id="usingapikey" href="#usingapikey">§</a></h2>
+<p>The API Key allows you to make requests to the API on a behalf of a user.</p>
+<pre><code>GET https://restapi.fromdoppler.com?access_token=...
+</code></pre>
+<p>You can pass the <em>API Key</em> in the query params like shown above, but a cleaner (and safer) approach is to include it in the Authorization header.</p>
+<pre><code>GET https://restapi.fromdoppler.com
+
+Authorization: token OAUTH-TOKEN
+</code></pre>
+<h2>Asking for a resource <a id="askingforaresource" href="#askingforaresource">§</a></h2>
+<p>Suppose that your Doppler account name is <code>test@test.com</code>, your API Key is <code>22495B800297B754C6EF66FA2C5C1902</code> and you want to get the collection of lists that you have created.</p>
+<p>So, you should prepare the follow HTTP request:</p>
+<pre><code>GET https://restapi.fromdoppler.com/accounts/test@test.com/lists
+
+Authorization: token 22495B800297B754C6EF66FA2C5C1902
+</code></pre>
+<p>Doppler API will return something like this:</p>
+<pre><code>Status Code: 200 OK
+Content-Length: 2130
+Content-Type: application/json; charset=utf-8; profile=https://restapi.fromdoppler.com/schemas/list-collection-page.json
+Date: Tue, 01 Sep 2015 15:16:47 GMT
+
+{
+  &quot;items&quot;: [
+    {
+      &quot;listId&quot;: 509702,
+      &quot;name&quot;: &quot;My First List&quot;,
+      &quot;currentStatus&quot;: &quot;ready&quot;,
+      &quot;subscribersCount&quot;: 0,
+      &quot;creationDate&quot;: &quot;2015-09-01T15:16:32.75+00:00&quot;,
+      &quot;_links&quot;: [
+        {
+          &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509702&quot;,
+          &quot;description&quot;: &quot;Get list&quot;,
+          &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-list&quot;
+        },
+        {
+          &quot;href&quot;: &quot;/accounts/test@test.com/lists/509702&quot;,
+          &quot;description&quot;: &quot;Edit a list&quot;,
+          &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/edit-list&quot;
+        },
+        {
+          &quot;href&quot;: &quot;/accounts/test@test.com/lists/509702&quot;,
+          &quot;description&quot;: &quot;Delete a list&quot;,
+          &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/delete-list&quot;
+        },
+        {
+          &quot;href&quot;: &quot;/accounts/test@test.com/lists/509702/subscribers&quot;,
+          &quot;description&quot;: &quot;Get subscribers of a list&quot;,
+          &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-subscribers-collection&quot;
+        },
+        {
+          &quot;href&quot;: &quot;/accounts/test@test.com/lists/509702/subscribers/import&quot;,
+          &quot;description&quot;: &quot;Import subscribers&quot;,
+          &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/import-subscribers&quot;
+        },
+        {
+          &quot;href&quot;: &quot;/accounts/test@test.com/lists/509702/subscribers&quot;,
+          &quot;description&quot;: &quot;Associate subscriber&quot;,
+          &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/associate-subscriber&quot;
+        }
+      ]
+    }
+  ],
+  &quot;pageSize&quot;: 20,
+  &quot;itemsCount&quot;: 1,
+  &quot;currentPage&quot;: 1,
+  &quot;pagesCount&quot;: 1,
+  &quot;_links&quot;: [
+    {
+      &quot;href&quot;: &quot;/accounts/test@test.com&quot;,
+      &quot;description&quot;: &quot;Get account home&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-account-home&quot;
+    },
+    {
+      &quot;href&quot;: &quot;/accounts/test@test.com/lists&quot;,
+      &quot;description&quot;: &quot;Create a list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/create-list&quot;
+    },
+    {
+      &quot;href&quot;: &quot;/accounts/test@test.com/lists&quot;,
+      &quot;description&quot;: &quot;Single page&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-lists-collection first last self&quot;
+    }
+  ]
+}
+</code></pre>
+<p>This response represents a page with a maximum of 20 items, each of them representing a <em>list</em> with the id, name, status and links for possible actions on it, for example delete it (see <code>rel=https://restapi.fromdoppler.com/docs/rels/delete-list</code>).</p>
+<p>Also the page have links to related resources and actions, for example create a new one (see <code>rel=https://restapi.fromdoppler.com/docs/rels/create-list</code>), or see the next page (<code>rel=next</code>).</p>
+<h2>Creating a resource <a id="creatingaresource" href="#creatingaresource">§</a></h2>
+<p>We want to create a new list named &quot;My Second List&quot;, so we send the follow request:</p>
+<pre><code>POST https://restapi.fromdoppler.com/accounts/test@test.com/lists
+
+Authorization: token 22495B800297B754C6EF66FA2C5C1902
+Content-Type: application/json
+
+{
+  &quot;name&quot;: &quot;My Second List&quot;
+}
+</code></pre>
+<p>Doppler API will return something like this:</p>
+<pre><code>Status Code: 201 Created
+Content-Length: 1559
+Content-Type: application/json; charset=utf-8; profile=https://restapi.fromdoppler.com/schemas/creation-result.json
+Date: Tue, 01 Sep 2015 16:08:28 GMT
+Location: https://restapi.fromdoppler.com/accounts/api_functionaltests@mailinator.com/lists/509719
+
+{
+  &quot;createdResourceId&quot;: &quot;509719&quot;,
+  &quot;message&quot;: &quot;List successfully created&quot;,
+  &quot;_links&quot;: [
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719&quot;,
+      &quot;description&quot;: &quot;Get list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-list related&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719/subscribers/import&quot;,
+      &quot;description&quot;: &quot;Import subscribers&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/import-subscribers&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719/subscribers&quot;,
+      &quot;description&quot;: &quot;Associate subscriber&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/associate-subscriber&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719&quot;,
+      &quot;description&quot;: &quot;Delete a list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/delete-list&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719&quot;,
+      &quot;description&quot;: &quot;Edit a list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/edit-list&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists&quot;,
+      &quot;description&quot;: &quot;Get lists collection&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-lists-collection parent&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists&quot;,
+      &quot;description&quot;: &quot;Create a list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/create-list&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com&quot;,
+      &quot;description&quot;: &quot;Get account home&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-account-home&quot;
+    }
+  ]
+}
+</code></pre>
+<p>This response represents a <em>resource creation</em> (see <code>Status Code</code>), includes the link to the created list (see <code>Location</code> header and <code>rel=related</code> link) and the id (see <code>createdResourceId</code> property). And, of course, a large set of links of related actions.</p>
+<h2>Dealing with errors <a id="dealwitherrors" href="#dealwitherrors">§</a></h2>
+<p>Suppose that you have reached the max list number allowed for your account and you try to create a new list. Doppler API will return you something like this:</p>
+<pre><code>{
+  &quot;title&quot;: &quot;Maximum number of lists reached&quot;,
+  &quot;status&quot;: 400,
+  &quot;errorCode&quot;: 3,
+  &quot;detail&quot;: &quot;It reached the maximum number of Lists. Can not create new ones.&quot;,
+  &quot;type&quot;: &quot;https://restapi.fromdoppler.com/docs/errors/400.3-maximum-number-of-lists-reached&quot;
+}
+</code></pre>
+<p>Notice about <code>type</code> field, it refers to a page where you can get more information about the error and how to solve it. See the section <a href="https://restapi.fromdoppler.com/docs/errors">Errors</a> for the complete list of possible problem types.</p>
+<h2>Dealing with dates and time <a id="dateandtime" href="#dateandtime">§</a></h2>
+<h3>DateTime <a id="dateandtime-datetime" href="#dateandtime-datetime">§</a></h3>
+<p>The follow is a subscribers list representation, from a Doppler API response:</p>
+<pre><code>{
+  &quot;listId&quot;: 509702,
+  &quot;name&quot;: &quot;My First List&quot;,
+  &quot;currentStatus&quot;: &quot;ready&quot;,
+  &quot;subscribersCount&quot;: 0,
+  &quot;creationDate&quot;: &quot;2015-09-01T15:16:32.75+00:00&quot;,
+  ...
+</code></pre>
+<p>As you can see <code>creationDate</code> represents a <em>DateTime value</em>. To avoid ambiguities, Doppler exposes this kind of data using <em>Coordinated Universal Time</em> (UTC) and making offset explicit (<code>+00:00</code>).</p>
+<p>Examples of accepted <em>DateTime</em> values are: <code>2015-08-15T09:00+04:00</code>, <code>2015-05-21T09:00:36-03:00</code>, <code>2010-01-29T09:00:36.515+00:00</code> and <code>2015-01-29T09:00:36Z</code>.</p>
+<h3>DateTime filtering <a id="dateandtime-filtering" href="#dateandtime-filtering">§</a></h3>
+<p>Requesting to some collections, for example <em>Unsubscribed Subscribers</em>, allows you to filter by a range of time giving the parameters <code>from</code> and <code>to</code> following the follow rules:</p>
+<ul>
+<li>
+<p>DateTime values should be explicit about timezone offset.</p>
+<ul>
+<li><strong>Valid:</strong> <code>...?from=2015-05-21T09:00:36-03:00&amp;to=2015-01-29T09:00:36Z</code>.</li>
+<li><strong>Invalid:</strong> <code>...?from=2015-05-21T09:00:36&amp;to=2015-01-29T09:00:36</code>.</li>
+</ul>
+</li>
+<li>
+<p>If parameter is missing, the filter is not applied.</p>
+<ul>
+<li><code>...?from=2015-05-21T09:00:36-03:00&amp;to=2015-01-29T09:00:36Z</code> means <strong>between <code>2015-05-21T09:00:36-03:00</code> and <code>2015-01-29T09:00:36Z</code></strong>.</li>
+<li><code>...?from=2015-05-21T09:00:36-03:00</code> means <strong>after <code>2015-05-21T09:00:36-03:00</code></strong>.</li>
+<li><code>...?to=2015-01-29T09:00:36Z</code> means <strong>before <code>2015-01-29T09:00:36Z</code></strong>.</li>
+</ul>
+</li>
+<li>
+<p><code>from</code> filter is <em>not strict (inclusive)</em></p>
+<ul>
+<li><code>...?from=2010-01-29T09:00:36.515+00:00</code> <strong>includes</strong> events occurred exactly at that time and after.</li>
+</ul>
+</li>
+<li>
+<p><code>to</code> filter is <em>strict (exclusive)</em></p>
+<ul>
+<li><code>...?to=2010-01-29T09:00:36.515+00:00</code> <strong>does not include</strong> events occurred exactly at that time, only events occurred before.</li>
+</ul>
+</li>
+</ul>
+<div class="message">
+<p><span class="icon-warning"></span><strong>Important</strong>: Take into account that parameters in query string should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">encoded</a>, so <code>+</code> character should be replaced by <code>%2B</code>. For example, if you want to get all unsubscriptions done after January 1, 2015 at 3 PM in Rome, Italy (UTC +2 hours), URL will be: <code>https://restapi.fromdoppler.com/accounts/test@test.com/unsubscribed?from=2015-01-01T03:00%2B02:00</code>.</p>
+</div>
+<h3>Date only values</h3>
+<p>Date only values are simpler. Doppler API accepts these formats: <code>2015-08-20</code> and <code>20150820</code>.</p>
+<h2>Asynchronous Tasks <a id="asynchronoustasks" href="#asynchronoustasks">§</a></h2>
+<p>There are some task that are not executed instantly, for example <em>Import Subscribers</em>.</p>
+<p>If <code>callback</code> property is set, when import process finish, Doppler API will execute a POST request against that URL, in our example: <code>http://my.own.server.com/my/own/resource</code>.</p>
+<p>Request:</p>
+<pre><code>POST https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719/subscribers/import
+
+Authorization: token 22495B800297B754C6EF66FA2C5C1902
+Content-Type: application/json
+
+{
+  &quot;fields&quot;: [],
+  &quot;items&quot;: [ 
+    { &quot;email&quot;: &quot;test@test.com&quot; }
+  ],
+  &quot;callback&quot;: &quot;http://my.own.server.com/my/own/resource&quot;
+}
+
+</code></pre>
+<p>Doppler API response:</p>
+<pre><code>Status Code: 202 Accepted
+Content-Length: 850
+Content-Type: application/json; charset=utf-8; profile=https://restapi.fromdoppler.com/schemas/creation-result.json
+Date: Tue, 01 Sep 2015 17:48:49 GMT
+Location: https://restapi.fromdoppler.com/accounts/test@test.com/tasks/import-2843
+
+{
+  &quot;createdResourceId&quot;: &quot;import-2843&quot;,
+  &quot;message&quot;: &quot;Import task successfully created&quot;,
+  &quot;_links&quot;: [
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/tasks/import-2843&quot;,
+      &quot;description&quot;: &quot;Get task&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-task related&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719/subscribers&quot;,
+      &quot;description&quot;: &quot;Get subscribers of a list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-subscribers-collection /docs/rels/not-implemented parent&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719&quot;,
+      &quot;description&quot;: &quot;Get list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-list&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com&quot;,
+      &quot;description&quot;: &quot;Get account home&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-account-home&quot;
+    }
+  ]
+}
+</code></pre>
+<p>Notice <code>Status Code: 202 Accepted</code>, it means that the task has been accepted and it is being processed asynchronously.</p>
+<p>In this case, <code>Location</code> header, <code>rel=related</code> link and <code>createdResourceId</code> properties refers to the created task resource.</p>
+<p>It is easy to get details about the task progress requesting for the created task:</p>
+<p>Request:</p>
+<pre><code>GET https://restapi.fromdoppler.com/accounts/test@test.com/tasks/import-2843
+
+Authorization: token 22495B800297B754C6EF66FA2C5C1902
+</code></pre>
+<p>Response:</p>
+<pre><code>Status Code: 200 OK
+Content-Length: 1336
+Content-Type: application/json; charset=utf-8; profile=https://restapi.fromdoppler.com/schemas/task.json
+Date: Tue, 01 Sep 2015 18:10:04 GMT
+
+{
+  &quot;importDetails&quot;: {
+    &quot;listId&quot;: 509719,
+    &quot;contentType&quot;: &quot;application/json&quot;,
+    &quot;deleteCustomFieldsData&quot;: false,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;amountImported&quot;: 1,
+    &quot;numberOfAttempts&quot;: 0,
+    &quot;dateLastImported&quot;: &quot;2015-09-01T18:09:50.42&quot;,
+    &quot;proccesed&quot;: 1,
+    &quot;invalidEmails&quot;: 0,
+    &quot;softBounceds&quot;: 0,
+    &quot;hardBounceds&quot;: 0,
+    &quot;subscriberBounceds&quot;: 0,
+    &quot;amountHeadersAndFieldsDontMatch&quot;: 0,
+    &quot;neverOpenBounceds&quot;: 0,
+    &quot;updated&quot;: 0,
+    &quot;newSubscribers&quot;: 1,
+    &quot;duplicated&quot;: 0,
+    &quot;unsubscribedByUser&quot;: 0,
+    &quot;usersInBlackList&quot;: 0,
+    &quot;duplicatedField&quot;: 0
+  },
+  &quot;taskType&quot;: &quot;import&quot;,
+  &quot;taskId&quot;: &quot;import-2844&quot;,
+  &quot;itemsProcessed&quot;: 1,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;startDate&quot;: &quot;2015-09-01T18:09:50.327+00:00&quot;,
+  &quot;finishDate&quot;: &quot;2015-09-01T18:09:50.42+00:00&quot;,
+  &quot;_links&quot;: [
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/tasks/import-2844&quot;,
+      &quot;description&quot;: &quot;Get task&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-task self&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com&quot;,
+      &quot;description&quot;: &quot;Get account home&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-account-home&quot;
+    },
+    {
+      &quot;href&quot;: &quot;https://restapi.fromdoppler.com/accounts/test@test.com/lists/509719&quot;,
+      &quot;description&quot;: &quot;Get list&quot;,
+      &quot;rel&quot;: &quot;https://restapi.fromdoppler.com/docs/rels/get-list&quot;
+    }
+  ]
+}
+</code></pre>
+<h2>Subscriber Field Values <a id="subscriberfieldvalues" href="#subscriberfieldvalues">§</a></h2>
+<p>Subscribers have a set of string key-value pairs called fields (see <a href="https://restapi.fromdoppler.com/schemas/subscriber.json">subscriber.json</a> and <a href="https://restapi.fromdoppler.com/schemas/field-value.json">field-value.json</a>), to get the full list of account's field definitions use <strong>Fields</strong> collection resource.</p>
+<p>Field value is always a string value, but depending on field type it has a specific format:</p>
+<ul>
+<li><strong><code>boolean</code></strong>: <code>true</code> or <code>false</code> (case sensitive).</li>
+<li><strong><code>number</code></strong>: A series of digits with or without dot followed by another series of digits.</li>
+<li><strong><code>string</code></strong>: Any text value (400 character max).</li>
+<li><strong><code>date</code></strong>: It accepts any valid date or date-time (see <strong>Date and time</strong> section), but only stores date part. Recommended format is <code>yyyy-MM-dd</code>.</li>
+<li><strong><code>gender</code></strong>: <code>M</code> for <em>male</em> and <code>F</code> for <em>female</em> (case sensitive), anything else for <em>not specified</em>.</li>
+<li><strong><code>country</code></strong>: <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country code (case insensitive).</li>
+</ul>
+<p><strong>Special behavior during subscribers import:</strong> If a value cannot be parsed following the previous rules, the previous field value will not be changed without any warning.</p>
+
 				<!--<h1>Introduction to Doppler Hypermedia API</h1>
 				<h2><a class="icon-ancla" id="disclaimer" href="#disclaimer"></a> Disclaimer</h2>
 				<p>To integrate with Doppler's API, you'll need some programming skills. If you’re ready to get started, read on.</p>
@@ -51,7 +417,7 @@
 				<p>Doppler API uses <em>Hypermedia</em> to guide clients through business processes, see <a href="https://en.wikipedia.org/wiki/HATEOAS">hypermedia as the engine of application state</a>. All API responses are self documented including several metadata. <strong>Your client could take advantage of these features or it can ignore them.</strong></p>
 				<p>See more information about these features at <a href="/docs/technicaldefinitions">Technical definitions</a>.</p>-->
 				
-				<h1>Getting started</h1>
+				<!--<h1>Getting started</h1>
 				<p>Since the API is based on REST principles, it's very easy to write and test applications. You can use your browser to access URLs, and you can use pretty much any HTTP client in any programming language to interact with the API.</p>
 				<h2><a class="icon-ancla" id="gettinganapplicationkey" href="#gettinganapplicationkey"></a> Getting an API Key </h2>
 				<p>Most of the Doppler API services require to call them on a behalf of  a user, so it is required an <em>API Key</em> to be included in each request.</p>
@@ -62,8 +428,11 @@
 					<code>GET https://restapi.fromdoppler.com?access_token=...</code>
 				</pre>
 				<p>You can pass the <em>API Key</em> in the query params like shown above, but a cleaner (and safer) approach is to include it in the Authorization header.</p>
-				<pre><code>GET https://restapi.fromdoppler.com<br />Authorization: token OAUTH-TOKEN
-				</code></pre>
+				<pre><code>GET https://restapi.fromdoppler.com
+
+Authorization: token OAUTH-TOKEN
+</code></pre>
+
 				<h2><a class="icon-ancla" id="askingforaresource" href="#askingforaresource"></a> Asking for a resource </h2>
 				<p>Suppose that your Doppler account name is <code>test@test.com</code>, your API Key is <code>22495B800297B754C6EF66FA2C5C1902</code> and you want to get the collection of lists that you have created.</p>
 				<p><strong>So, you should prepare the follow HTTP request:</strong></p>
@@ -235,36 +604,36 @@
 				<h3>DateTime filtering <a id="dateandtime-filtering" href="#dateandtime-filtering">§</a></h3>
 				<p>Requesting to some collections, for example <em>Unsubscribed Subscribers</em>, allows you to filter by a range of time giving the parameters <code>from</code> and <code>to</code> following the follow rules:</p>
 				<ul>
-				<li>
-				<p>DateTime values should be explicit about timezone offset.</p>
-				<ul>
-				<li><strong>Valid:</strong> <code>...?from=2015-05-21T09:00:36-03:00&amp;to=2015-01-29T09:00:36Z</code>.</li>
-				<li><strong>Invalid:</strong> <code>...?from=2015-05-21T09:00:36&amp;to=2015-01-29T09:00:36</code>.</li>
-				</ul>
-				</li>
-				<li>
-				<p>If parameter is missing, the filter is not applied.</p>
-				<ul>
-				<li><code>...?from=2015-05-21T09:00:36-03:00&amp;to=2015-01-29T09:00:36Z</code> means <strong>between <code>2015-05-21T09:00:36-03:00</code> and <code>2015-01-29T09:00:36Z</code></strong>.</li>
-				<li><code>...?from=2015-05-21T09:00:36-03:00</code> means <strong>after <code>2015-05-21T09:00:36-03:00</code></strong>.</li>
-				<li><code>...?to=2015-01-29T09:00:36Z</code> means <strong>before <code>2015-01-29T09:00:36Z</code></strong>.</li>
-				</ul>
-				</li>
-				<li>
-				<p><code>from</code> filter is <em>not strict (inclusive)</em></p>
-				<ul>
-				<li><code>...?from=2010-01-29T09:00:36.515+00:00</code> <strong>includes</strong> events occurred exactly at that time and after.</li>
-				</ul>
-				</li>
-				<li>
-				<p><code>to</code> filter is <em>strict (exclusive)</em></p>
-				<ul>
-				<li><code>...?to=2010-01-29T09:00:36.515+00:00</code> <strong>does not include</strong> events occurred exactly at that time, only events occurred before.</li>
-				</ul>
-				</li>
+					<li>
+						<p>DateTime values should be explicit about timezone offset.</p>
+						<ul>
+							<li><strong>Valid:</strong> <code>...?from=2015-05-21T09:00:36-03:00&amp;to=2015-01-29T09:00:36Z</code>.</li>
+							<li><strong>Invalid:</strong> <code>...?from=2015-05-21T09:00:36&amp;to=2015-01-29T09:00:36</code>.</li>
+						</ul>
+					</li>
+					<li>
+						<p>If parameter is missing, the filter is not applied.</p>
+						<ul>
+						<li><code>...?from=2015-05-21T09:00:36-03:00&amp;to=2015-01-29T09:00:36Z</code> means <strong>between <code>2015-05-21T09:00:36-03:00</code> and <code>2015-01-29T09:00:36Z</code></strong>.</li>
+						<li><code>...?from=2015-05-21T09:00:36-03:00</code> means <strong>after <code>2015-05-21T09:00:36-03:00</code></strong>.</li>
+						<li><code>...?to=2015-01-29T09:00:36Z</code> means <strong>before <code>2015-01-29T09:00:36Z</code></strong>.</li>
+						</ul>
+					</li>
+					<li>
+						<p><code>from</code> filter is <em>not strict (inclusive)</em></p>
+						<ul>
+						<li><code>...?from=2010-01-29T09:00:36.515+00:00</code> <strong>includes</strong> events occurred exactly at that time and after.</li>
+						</ul>
+					</li>
+					<li>
+						<p><code>to</code> filter is <em>strict (exclusive)</em></p>
+						<ul>
+						<li><code>...?to=2010-01-29T09:00:36.515+00:00</code> <strong>does not include</strong> events occurred exactly at that time, only events occurred before.</li>
+						</ul>
+					</li>
 				</ul>
 				<div class="message">
-				<p><span class="icon-warning"></span><strong>Important</strong>: Take into account that parameters in query string should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">encoded</a>, so <code>+</code> character should be replaced by <code>%2B</code>. For example, if you want to get all unsubscriptions done after January 1, 2015 at 3 PM in Rome, Italy (UTC +2 hours), URL will be: <code>https://restapi.fromdoppler.com/accounts/test@test.com/unsubscribed?from=2015-01-01T03:00%2B02:00</code>.</p>
+					<p><span class="icon-warning"></span><strong>Important</strong>: Take into account that parameters in query string should be <a href="https://en.wikipedia.org/wiki/Percent-encoding">encoded</a>, so <code>+</code> character should be replaced by <code>%2B</code>. For example, if you want to get all unsubscriptions done after January 1, 2015 at 3 PM in Rome, Italy (UTC +2 hours), URL will be: <code>https://restapi.fromdoppler.com/accounts/test@test.com/unsubscribed?from=2015-01-01T03:00%2B02:00</code>.</p>
 				</div>
 				<h3>Date only values</h3>
 				<p>Date only values are simpler. Doppler API accepts these formats: <code>2015-08-20</code> and <code>20150820</code>.</p>
@@ -393,7 +762,7 @@
 				<li><strong><code>gender</code></strong>: <code>M</code> for <em>male</em> and <code>F</code> for <em>female</em> (case sensitive), anything else for <em>not specified</em>.</li>
 				<li><strong><code>country</code></strong>: <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country code (case insensitive).</li>
 				</ul>
-				<p><strong>Special behavior during subscribers import:</strong> If a value cannot be parsed following the previous rules, the previous field value will not be changed without any warning.</p>
+				<p><strong>Special behavior during subscribers import:</strong> If a value cannot be parsed following the previous rules, the previous field value will not be changed without any warning.</p>-->
 
 
 
